@@ -6,8 +6,8 @@ Feature: Naukri Login
         Then user should see "<result>"
 
         Examples:
-            | username                 | password | result    |
-            | nileshadole963@gmail.com | 8149@Nil | success   |
-            | nileshadole963@gmail.com | 8149@Ni  | failure   |
+            | username    | password        | result    |
+            | VALID_USER  | VALID_PASSWORD  | success   |
+            |  VALID_USER | 8149@Ni         | failure   |
 
     
