@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Before, After } = require('@cucumber/cucumber');
 const { chromium } = require('playwright');
 const PageManager = require('../pages/PageManager');

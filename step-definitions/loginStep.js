@@ -10,9 +10,22 @@ Given('user is on the Naukri login page', async function () {
 });
 
 When('user logs in with {string} and {string}', async function (username, password) {
-    await this.pageManager.getLoginPage().login(username, password);
+    const resolvedUsername = username === 'VALID_USER' ? process.env.NAUKRI_EMAIL : username;
+	const resolvedPassword = password === 'VALID_PASSWORD' ? process.env.NAUKRI_PASSWORD : password;
+
+    await this.pageManager.getLoginPage().login(resolvedUsername, resolvedPassword);
 });
 
+When('user logs in with valid credentials', async function () {
+	const email = process.env.NAUKRI_EMAIL;
+	const password = process.env.NAUKRI_PASSWORD;
+
+	if (!email || !password) {
+		throw new Error('NAUKRI_EMAIL or NAUKRI_PASSWORD not set in .env file');
+	}
+
+	await this.pageManager.getLoginPage().login(email, password);
+});
 
 Then('user should see {string}', async function (result) {
     if (result === "success") {

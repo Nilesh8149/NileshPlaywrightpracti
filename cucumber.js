@@ -8,9 +8,9 @@
             'hooks/**/*.js'
         ],
 
-        paths: [
-            'features/**/*.feature'
-        ],
+       paths: [
+           'features/**/*.feature'
+       ],
 
         format: ['progress']
     }
